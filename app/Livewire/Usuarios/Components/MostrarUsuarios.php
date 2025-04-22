@@ -24,7 +24,11 @@ class MostrarUsuarios extends Component
 
     public function render()
     {
-        $usuarios = $this->usuarios =  User::where('id', '!=', auth()->id())->get();
+        $usuarios = $this->usuarios = User::with('roles')
+            ->where('id', '!=', auth()->id())
+            ->get();
+
         return view('livewire.usuarios.components.mostrar-usuarios', compact('usuarios'));
     }
+
 }

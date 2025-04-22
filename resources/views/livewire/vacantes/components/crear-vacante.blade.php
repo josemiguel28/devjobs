@@ -101,7 +101,7 @@
         <textarea id="descripcion"
                   class="rounded-md shadow-sm border-gray-300 focus:ring-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 mt-1 w-full h-72"
                   type="text"
-                  wire:model.live="descripcion"
+                  wire:model="descripcion"
                   value="{{ old('descripcion') }}"
                   placeholder="Descripcion de la vacante"
                   required
@@ -118,12 +118,21 @@
                       type="file"
                       wire:model.live="imagen"
                       required
-
                       accept="image/png, image/jpeg, image/jpg"
+
         />
 
-        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG o JPEG (MAX.
-            1MB).</p>
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG o JPEG (MAX. 1MB).</p>
+
+        <div wire:loading wire:target="imagen" class="flex items-center gap-2 mt-2">
+            <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8H4z"/>
+            </svg>
+            <span>Subiendo imagen...</span>
+        </div>
+
 
         <div class="my-5 w-80">
             @if($imagen)

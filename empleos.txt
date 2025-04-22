@@ -1,0 +1,151 @@
+.
+├── app
+│   ├── Enums                                      # Constantes que se utilizan en el proyecto 
+│   │   ├── UserRoles.php
+│   │   └── UserState.php
+│   ├── Http
+│   │   ├── Controllers                            # Controladores para cada funcionalidad ##                             
+│   │   ├── Middleware
+│   │   └── Requests
+│   ├── Livewire				   ## Clases de cada funcionalidad ##
+│   │   ├── Actions
+│   │   ├── Forms
+│   │   ├── Transacciones		           # Funcionalidad para aceptar pagos
+│   │   ├── Usuarios			           # Funcionalidad para gestionar usuarios
+│   │   └── Vacantes			           # Funcionalidad para las vacantes
+│   ├── Models					   ## Modelos de cada funcionalidad ##
+│   │   ├── Candidato.php
+│   │   ├── Categoria.php
+│   │   ├── Departamento.php
+│   │   ├── Plan.php
+│   │   ├── Roles.php
+│   │   ├── Salario.php
+│   │   ├── Transaccion.php
+│   │   ├── User.php
+│   │   └── Vacante.php
+│   ├── Notifications 				   ## Notificaciones por correo o en BD ## 
+│   │   ├── NuevaTransaccion.php		   # Notifica al administrador
+│   │   ├── NuevoCandidato.php		           # Notifica al usuario que creo la vacante
+│   │   └── TransaccionExitosa.php		   # Notifica al reclutador que hizo un pago
+│   ├── Policies			           ## Permisos ##
+│   │   ├── PlanPolicy.php		           # Permiso para ver los planes
+│   │   ├── TransaccionPolicy.php		   # Permisos para ver las transacciones
+│   │   ├── UserPolicy.php			   # Permisos para gestionar a los usuarios
+│   │   └── VacantePolicy.php			   # Permisos para gestionar las vacantes
+│   ├── Providers
+│   │   ├── AppServiceProvider.php
+│   │   └── VoltServiceProvider.php
+│   └── View
+│       └── Components
+├── artisan
+├── bootstrap
+│   ├── app.php
+│   ├── cache
+│   │   ├── packages.php
+│   │   └── services.php
+│   └── providers.php
+├── composer.json
+├── composer.lock
+├── config
+│   ├── app.php
+│   ├── auth.php
+│   ├── cache.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── logging.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── services.php
+│   └── session.php
+├── database
+│   ├── factories
+│   │   └── UserFactory.php
+│   ├── migrations					## Scripts de la base de datos ##
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 0001_01_01_000001_create_cache_table.php
+│   │   ├── 0001_01_01_000002_create_jobs_table.php
+│   │   ├── 2025_01_17_033216_add_rol_to_users_table.php
+│   │   ├── 2025_01_17_035046_create_vacante_table.php
+│   │   ├── 2025_01_18_023502_create_salarios_table.php
+│   │   ├── 2025_01_18_024915_create_categorias_table.php
+│   │   ├── 2025_01_18_041843_add_columns_to_vacantes_table.php
+│   │   ├── 2025_03_22_004418_create_candidatos_table.php
+│   │   ├── 2025_03_22_022010_create_notifications_table.php
+│   │   ├── 2025_04_07_165353_create_roles_table.php
+│   │   ├── 2025_04_07_165528_add_role_id_to_users_table.php
+│   │   ├── 2025_04_07_211907_add_estado_to_users_table.php
+│   │   ├── 2025_04_08_001305_create_plans_table.php
+│   │   ├── 2025_04_08_001544_create_transaccions_table.php
+│   │   ├── 2025_04_11_042942_create_departamentos_table.php
+│   │   └── 2025_04_11_043238_add_departamento_id_to_vacantes_table.php
+│   └── seeders						## Registros pre definidos en la BD ##
+│       ├── AdminSeeder.php
+│       ├── CategoriaSeeder.php
+│       ├── DatabaseSeeder.php                        
+│       ├── DepartamentoSeeder.php
+│       ├── PlanSeeder.php
+│       ├── RolesSeeder.php
+│       └── SalarioSeeder.php
+├── docker-compose.yml
+├── lang
+│   └── es
+│       ├── auth.php
+│       ├── pagination.php
+│       ├── passwords.php
+│       └── validation.php
+├── package-lock.json
+├── package.json
+├── phpunit.xml
+├── postcss.config.js
+├── public
+│   ├── build
+│   │   ├── assets
+│   │   └── manifest.json
+│   ├── favicon.ico
+│   ├── img
+│   │   └── logo.avif
+│   ├── index.php
+│   ├── robots.txt
+├── resources
+│   ├── css
+│   │   └── app.css
+│   ├── js
+│   │   ├── app.js
+│   │   └── bootstrap.js
+│   └── views                                ## Vistas que se renderizan al usuario ##
+│       ├── auth			     # vistas de autenticación 
+│       ├── candidatos			     # vistas que muestran los candidatos de una vacante
+│       ├── components			     # componentes del proyecto
+│       ├── home			     # vista principal del proyecto
+│       ├── layouts			     # diseños para cada usuario
+│       ├── livewire		# componentes que se llaman en las vistas de los controladores
+│       ├── notificaciones       # vista que renderiza las notificaciones al usuario desde la BD               
+│       ├── planes			  # muestra los planes disponibles a los reclutadores
+│       ├── transacciones		     # muestra las transacciones al administrador
+│       ├── users			     # muestra los usuarios al administrador 
+│       ├── vacantes			  # muestra las vacantes al usuario que creo la vacante
+├── routes
+│   ├── auth.php
+│   ├── console.php
+│   └── web.php
+├── storage
+│   ├── app
+│   │   ├── private
+│   │   └── public                           # almacena los archivos públicos del proyecto
+│   ├── framework
+│   │   ├── cache
+│   │   ├── sessions
+│   │   ├── testing
+│   │   └── views
+│   └── logs
+│       └── laravel.log
+├── tailwind.config.js
+├── tests
+│   ├── Feature
+│   │   ├── Auth
+│   │   ├── ExampleTest.php
+│   │   └── ProfileTest.php
+│   ├── TestCase.php
+│   └── Unit
+│       └── ExampleTest.php
+└── vite.config.js

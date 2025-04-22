@@ -1,5 +1,9 @@
 <x-app-layout>
 
+    <x-slot:title>
+        Confirmar Plan {{ $plan->nombre }}
+    </x-slot:title>
+
     <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 my-10 mb-8">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold text-gray-800">Confirmar Plan: <span

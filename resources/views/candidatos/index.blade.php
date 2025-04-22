@@ -1,4 +1,9 @@
 <x-app-layout>
+
+    <x-slot:title>
+        Candidatos de la vacante {{ $vacante->titulo }}
+    </x-slot:title>
+
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
             {{ __('Candidatos de la vacante') }}
@@ -26,7 +31,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="flex items-center space-x-3">
+                                    <div class="flew-col lg:flex items-center space-x-3">
                                         <!-- Botón Ver CV -->
                                         <a href="{{ asset('storage/cv/' . $candidato->cv) }}"
                                            target="_blank"
@@ -55,7 +60,20 @@
 
                                 </li>
                             @empty
-                                <li class="p-4 text-center text-sm text-gray-600">No hay candidatos</li>
+                                <li class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm border border-gray-100 text-center">
+                                    <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor"
+                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    <h3 class="mt-3 text-lg font-medium text-gray-700">No hay candidatos</h3>
+                                    <p class="mt-2 text-gray-500">Aún no se han postulado candidatos para esta
+                                        vacante.</p>
+                                    <x-primary-button onclick="copiarEnlace()"
+                                                      class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
+                                        Compartir vacante
+                                    </x-primary-button>
+                                </li>
                             @endforelse
                         </ul>
                     </div>
@@ -63,4 +81,16 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            function copiarEnlace() {
+                const enlace = "{{ url()->current() }}";
+                navigator.clipboard.writeText(enlace).then(() => {
+                    alert('¡Enlace copiado al portapapeles!');
+                });
+            }
+        </script>
+
+    @endpush
 </x-app-layout>

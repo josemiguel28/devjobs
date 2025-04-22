@@ -62,7 +62,7 @@
 
                         <span class="text-sm px-2 py-0.5 rounded-full ml-2
                             {{ $vacante->ultimo_dia >= now() ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600' }}">
-                            {{ $vacante->ultimo_dia >= now() ? 'Activa' : 'Venció' }}
+                            {{ $vacante->ultimo_dia >= now() ? 'Reclutando' : 'Venció' }}
                         </span>
                     </a>
 
@@ -94,8 +94,21 @@
         </div>
 
     @empty
-        <div>
-            <p class="p-4 text-center text-sm text-gray-600">No hay vacantes aún. !Crea una nueva!</p>
+        <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm border border-gray-100 text-center">
+            <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h3 class="mt-3 text-lg font-medium text-gray-700">No hay vacantes disponibles</h3>
+            <p class="mt-2 text-gray-500">Parece que aún no has creado ninguna vacante.</p>
+
+            <a href=" {{ route('vacantes.create') }}">
+                <x-primary-button
+                    class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                    Crear nueva vacante
+                </x-primary-button>
+            </a>
         </div>
 
     @endforelse
