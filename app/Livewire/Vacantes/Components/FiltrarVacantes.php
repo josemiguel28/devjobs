@@ -6,6 +6,13 @@ use App\Models\Categoria;
 use App\Models\Salario;
 use Livewire\Component;
 
+/**
+ * FiltrarVacantes
+ * Se encarga de filtrar las vacantes según los criterios de búsqueda
+ * especificados por el usuario.
+ *
+ * @package App\Livewire\Vacantes\Components
+ */
 class FiltrarVacantes extends Component
 {
 

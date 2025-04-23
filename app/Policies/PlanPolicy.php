@@ -27,48 +27,11 @@ class PlanPolicy
             $user->rol_id == UserRoles::ADMINISTRADOR;
     }
 
+    /**
+     * Determine whether the user can purchase a new plan.
+     */
     public function enviar(User $user, Plan $plan): bool
     {
         return $user->rol_id == UserRoles::RECLUTADOR;
-    }
-
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Plan $plan): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Plan $plan): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Plan $plan): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Plan $plan): bool
-    {
-        return false;
     }
 }

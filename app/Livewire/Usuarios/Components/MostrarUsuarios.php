@@ -26,6 +26,7 @@ class MostrarUsuarios extends Component
     {
         $usuarios = $this->usuarios = User::with('roles')
             ->where('id', '!=', auth()->id())
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('livewire.usuarios.components.mostrar-usuarios', compact('usuarios'));

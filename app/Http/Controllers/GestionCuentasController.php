@@ -13,33 +13,10 @@ class GestionCuentasController extends Controller
      */
     public function index()
     {
+        // Policies/UserPolicy.php
         Gate::authorize('viewAny', auth()->user());
 
         return view ('users.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
     }
 
     /**
@@ -50,21 +27,5 @@ class GestionCuentasController extends Controller
         Gate::authorize('update', $user);
 
         return view('users.edit', compact('user'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
     }
 }

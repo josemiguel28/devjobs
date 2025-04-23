@@ -27,14 +27,6 @@ class PlanController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(Plan $plan, Request $request)
@@ -71,7 +63,7 @@ class PlanController extends Controller
             'referencia' => $request->referencia
         ]);
 
-        // Enviar correo al admin
+        // Enviar correo al admin notificando la nueva transaccion
         User::where('rol_id', UserRoles::ADMINISTRADOR)
             ->get()
             ->each(function ($user) use ($transaccion) {
@@ -80,30 +72,6 @@ class PlanController extends Controller
 
         return redirect()->route('vacantes.index')->with('success', 'Comprobante enviado, espera la confirmacion');
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Plan $plan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Plan $plan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Plan $plan)
-    {
-        //
     }
 
     private function solicitudPendiente()

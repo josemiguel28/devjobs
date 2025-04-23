@@ -56,7 +56,7 @@
                     <a href="{{ route('vacantes.show', $vacante->id) }}"
                        class="flex items-center justify-between group">
 
-                        <h2 class="text-xl md:text-2xl font-semibold md:font-bold text-yellow-600 group-hover:underline transition">
+                        <h2 class="text-xl md:text-2xl font-semibold md:font-bold text-yellow-600 group-hover:underline transition max-w-2xl truncate">
                             {{ $vacante->titulo }}
                         </h2>
 

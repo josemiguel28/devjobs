@@ -21,7 +21,6 @@ class PostularVacante extends Component
 
     public function mount()
     {
-        // Asumiendo que candidatos tiene user_id (relación con usuarios)
         $this->yaAplico = $this->vacante->candidatos()
             ->where('user_id', auth()->id())
             ->exists();
@@ -34,13 +33,12 @@ class PostularVacante extends Component
         $cv = $this->cv->store(path: 'cv');
         $cvRuta = str_replace('cv/', '', $cv);
 
-        //crear la postulacion
         $this->vacante->candidatos()->create([
             'user_id' => auth()->user()->id,
             'cv' => $cvRuta
         ]);
 
-        //crear notificacion
+        //crear notificacion para el usuario que creo la vacante
         $this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id, $this->vacante->titulo, auth()->user()->id));
 
         session()->flash('message', 'Se envio correctamente tu postulación, ¡mucha suerte!');
