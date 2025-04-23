@@ -1,4 +1,10 @@
 <x-guest-layout>
+
+    <x-slot name="title">
+        Verifica tu correo
+    </x-slot>
+
+
     <div class="mb-4 text-sm text-gray-600">
         {{ __('¡Gracias por registrarte! Antes de continuar,
         puedes verificar tu correo haciendo click en el link que enviamos a tu correo

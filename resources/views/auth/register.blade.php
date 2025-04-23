@@ -1,4 +1,9 @@
 <x-guest-layout>
+
+    <x-slot name="title">
+        Registrarse
+    </x-slot>
+
     <form method="POST" action="{{ route('register') }}" novalidate>
         @csrf
 

@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <x-slot name="title">
+        Olvidé mi contraseña
+    </x-slot>
+
+
     <div class="mb-4 text-sm text-gray-600">
         {{ __('¿Olvidaste tu contraseña? No hay problema. Solo ingresa tu correo electrónico y te enviaremos un link que te permitirá crear una nueva contraseña.') }}
     </div>

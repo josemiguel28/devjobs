@@ -1,4 +1,10 @@
 <x-guest-layout>
+
+    <x-slot name="title">
+       Restablecer contraseña
+    </x-slot>
+
+
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 

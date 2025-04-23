@@ -22,7 +22,7 @@
                     <div class="md:flex md:justify-center p-5">
                         <ul class="divide-y divide-gray-200 w-full">
                             @forelse($vacante->candidatos as $candidato)
-                                <li class="p-4 flex items-center justify-between">
+                                <li class="p-4 flex flex-col lg:flex-row lg:items-center lg:justify-between">
                                     <div class="flex-1">
                                         <p class="text-xl font-medium text-gray-800">{{ $candidato->user->name }}</p>
                                         <p class="text-sm font-medium text-gray-600">{{ $candidato->user->email }}</p>
@@ -31,7 +31,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="flew-col lg:flex items-center space-x-3">
+                                    <div class="flew-col lg:flex mx-auto items-center space-x-3 space-y-6 lg:space-y-0">
                                         <!-- Botón Ver CV -->
                                         <a href="{{ asset('storage/cv/' . $candidato->cv) }}"
                                            target="_blank"
@@ -69,10 +69,6 @@
                                     <h3 class="mt-3 text-lg font-medium text-gray-700">No hay candidatos</h3>
                                     <p class="mt-2 text-gray-500">Aún no se han postulado candidatos para esta
                                         vacante.</p>
-                                    <x-primary-button onclick="copiarEnlace()"
-                                                      class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
-                                        Compartir vacante
-                                    </x-primary-button>
                                 </li>
                             @endforelse
                         </ul>
@@ -81,16 +77,4 @@
             </div>
         </div>
     </div>
-
-    @push('scripts')
-        <script>
-            function copiarEnlace() {
-                const enlace = "{{ url()->current() }}";
-                navigator.clipboard.writeText(enlace).then(() => {
-                    alert('¡Enlace copiado al portapapeles!');
-                });
-            }
-        </script>
-
-    @endpush
 </x-app-layout>
